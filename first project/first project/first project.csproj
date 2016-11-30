@@ -69,6 +69,7 @@
     <Compile Include="LoginToAdminPanelTest.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="AllItemsHaveStickersTest.cs" />
+    <Compile Include="CheckCountriesAlphabetOrderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

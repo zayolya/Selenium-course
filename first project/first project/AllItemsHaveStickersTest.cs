@@ -6,7 +6,7 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace first_project
 {
-    [TestClass]
+    [TestFixture]
     public class AllItemsHaveStickersTest : TestBase 
     {
         [Test]
