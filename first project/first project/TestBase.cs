@@ -35,5 +35,9 @@ namespace first_project
             _driver.FindElement(By.Name("login")).Click();
             _wait.Until(ExpectedConditions.ElementExists(By.Id("box-apps-menu")));
         }
+        protected void OpenHomePage()
+        {
+            _driver.Url = "http://localhost:81/litecart/";
+        }
     }
 }

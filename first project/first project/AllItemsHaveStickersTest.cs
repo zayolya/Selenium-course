@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -12,7 +11,7 @@ namespace first_project
         [Test]
         public void TestMethod1()
         {
-            _driver.Url = "http://localhost:81/litecart/";
+            OpenHomePage();
             ReadOnlyCollection<IWebElement> items = _driver.FindElements(By.XPath("//div[@class='content']//ul[@class='listing-wrapper products']//li"));
             foreach (var item in items)
             {

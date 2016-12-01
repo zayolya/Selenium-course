@@ -70,6 +70,7 @@
     <Compile Include="TestBase.cs" />
     <Compile Include="AllItemsHaveStickersTest.cs" />
     <Compile Include="CheckCountriesAlphabetOrderTest.cs" />
+    <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
