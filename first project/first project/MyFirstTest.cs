@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace first_project
@@ -32,6 +33,8 @@ namespace first_project
 
         //    IList<IWebElement> links = (IList<IWebElement>)((IJavascriptExecutor)driver).ExecuteScript("return $$('a:contains((WebDriver)')");
 
+
+           // new Actions(driver).MoveToElement(drag).ClickAndHold().MoveToElement(drop).Release().Perform();
         }
 
         [Test]

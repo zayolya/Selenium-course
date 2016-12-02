@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 
 namespace first_project
@@ -38,6 +39,23 @@ namespace first_project
         protected void OpenHomePage()
         {
             _driver.Url = "http://localhost:81/litecart/";
+        }
+
+        protected void FillInput(By locator, string inputValue)
+        {
+            _driver.FindElement(locator).SendKeys(inputValue);
+        }
+
+        protected void HiddenSelectOptionSelect(By locator, string value)
+        {
+            IWebElement select = _driver.FindElement(locator);
+            _driver.ExecuteJavaScript("arguments[0].style.opacity=1;", select);
+            SelectElement selectElement = new SelectElement(select);
+            selectElement.SelectByValue(value);
+        }
+        protected void Logout()
+        {
+            _driver.FindElement(By.XPath("//a[contains(.,'Logout')]")).Click();
         }
     }
 }
