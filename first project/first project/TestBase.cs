@@ -43,6 +43,7 @@ namespace first_project
 
         protected void FillInput(By locator, string inputValue)
         {
+            _driver.FindElement(locator).Clear();
             _driver.FindElement(locator).SendKeys(inputValue);
         }
 
@@ -53,9 +54,42 @@ namespace first_project
             SelectElement selectElement = new SelectElement(select);
             selectElement.SelectByValue(value);
         }
+        
         protected void Logout()
         {
             _driver.FindElement(By.XPath("//a[contains(.,'Logout')]")).Click();
+        }
+        
+        protected void Unhide(IWebElement element)
+        {
+            String script = "arguments[0].style.opacity=1;"
+              + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
+              + "return true;";
+            _driver.ExecuteJavaScript(script, element);
+        }
+
+        protected void SetDatepicker(string cssSelector, string date)
+        {
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(30)).Until<bool>(
+                d => _driver.FindElement(By.CssSelector(cssSelector)).Displayed);
+            (_driver as IJavaScriptExecutor).ExecuteScript(
+                String.Format("$('{0}').datepicker('setDate', '{1}')", cssSelector, date));
+        }
+        
+        protected void FindAndClickLinkByText(string linkText)
+        {
+            _driver.FindElement(By.XPath("//a[contains(.,'" + linkText + "')]")).Click();
+        }
+
+        protected void UploadFile(By locator, string filePath)
+        {
+            IWebElement fileUpload = _driver.FindElement(locator);
+            Unhide(fileUpload);
+            fileUpload.SendKeys(filePath);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace first_project
         {
             OpenHomePage();
             
-            _driver.FindElement(By.XPath("//a[contains(.,'New customers click here')]")).Click();
+            FindAndClickLinkByText("New customers click here");
 
             string testEmail = GetRandomAlphaNumeric() + "@test.test";
             

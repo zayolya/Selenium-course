@@ -71,6 +71,7 @@
     <Compile Include="AllItemsHaveStickersTest.cs" />
     <Compile Include="CheckCountriesAlphabetOrderTest.cs" />
     <Compile Include="RegistrationTest.cs" />
+    <Compile Include="AddItemTests.cs" />
     <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>
