@@ -32,12 +32,12 @@ namespace first_project
 
         private void ClickLoginButton()
         {
-            _driver.FindElement(By.CssSelector("button[name=login]")).Click();
+            ClickButtonByName("login");
         }
 
         private void ClickCreateAccountButton()
         {
-            _driver.FindElement(By.CssSelector("button[name=create_account]")).Click();
+            ClickButtonByName("create_account");
         }
 
         private void FillLoginForm(string testEmail)

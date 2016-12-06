@@ -12,7 +12,7 @@ namespace first_project
         public void TestMethod1()
         {
             OpenHomePage();
-            ReadOnlyCollection<IWebElement> items = _driver.FindElements(By.XPath("//div[@class='content']//ul[@class='listing-wrapper products']//li"));
+            ReadOnlyCollection<IWebElement> items = Driver.FindElements(By.XPath("//div[@class='content']//ul[@class='listing-wrapper products']//li/a"));
             foreach (var item in items)
             {
                 ReadOnlyCollection<IWebElement> stickers = item.FindElements(By.CssSelector("div[class^='sticker']"));

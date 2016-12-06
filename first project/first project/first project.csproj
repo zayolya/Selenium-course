@@ -72,6 +72,7 @@
     <Compile Include="CheckCountriesAlphabetOrderTest.cs" />
     <Compile Include="RegistrationTest.cs" />
     <Compile Include="AddItemTests.cs" />
+    <Compile Include="AddItemsToCart.cs" />
     <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>

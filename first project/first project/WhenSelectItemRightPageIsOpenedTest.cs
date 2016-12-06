@@ -11,7 +11,7 @@ namespace first_project
         public void IpemsPageOpensCorrectlyTest()
         {
             OpenHomePage();
-            IWebElement itemLink = _driver.FindElement(By.CssSelector("div#box-campaigns div.content ul li:first-child a:not([class^=fancybox])"));
+            IWebElement itemLink = Driver.FindElement(By.CssSelector("div#box-campaigns div.content ul li:first-child a:not([class^=fancybox])"));
             
             string itemName = itemLink.FindElement(By.CssSelector("div.name")).Text;
             
@@ -26,13 +26,13 @@ namespace first_project
             itemLink.Click();
 
             IWebElement regularPriceItem =
-                _driver.FindElement(By.CssSelector("div.content div.information div.price-wrapper s.regular-price"));
+                Driver.FindElement(By.CssSelector("div.content div.information div.price-wrapper s.regular-price"));
             IWebElement campaignPriceItem =
-                _driver.FindElement(By.CssSelector("div.content div.information div.price-wrapper strong.campaign-price"));
+                Driver.FindElement(By.CssSelector("div.content div.information div.price-wrapper strong.campaign-price"));
 
             CheckPricesStyles(regularPriceItem, campaignPriceItem, "rgba(102, 102, 102, 1)");
 
-            Assert.AreEqual(itemName, _driver.FindElement(By.CssSelector("div#box-product h1.title")).Text, "Name doesn't match");
+            Assert.AreEqual(itemName, Driver.FindElement(By.CssSelector("div#box-product h1.title")).Text, "Name doesn't match");
             Assert.AreEqual(regularPriceText, regularPriceItem.Text, "Regular price doesn't match");
             Assert.AreEqual(campaignPriceText, campaignPriceItem.Text, "Campaign price doesn't match");
         }

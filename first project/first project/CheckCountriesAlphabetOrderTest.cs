@@ -18,9 +18,9 @@ namespace first_project
         {
             LogintoAdminPanel();
 
-            _driver.Url = "http://localhost:81/litecart/admin/?app=countries&doc=countries";
+            Driver.Url = "http://localhost:81/litecart/admin/?app=countries&doc=countries";
             ReadOnlyCollection<IWebElement> tableRows =
-                _driver.FindElements(By.CssSelector("form[name='countries_form'] table.dataTable tr.row"));
+                Driver.FindElements(By.CssSelector("form[name='countries_form'] table.dataTable tr.row"));
 
             string previousCountryName = "Aaaaa";
 
@@ -40,9 +40,9 @@ namespace first_project
         {
             LogintoAdminPanel();
 
-            _driver.Url = "http://localhost:81/litecart/admin/?app=countries&doc=countries";
+            Driver.Url = "http://localhost:81/litecart/admin/?app=countries&doc=countries";
            
-            ReadOnlyCollection<IWebElement> tableRows = _driver.FindElements(By.CssSelector("form[name='countries_form'] table.dataTable tr.row"));
+            ReadOnlyCollection<IWebElement> tableRows = Driver.FindElements(By.CssSelector("form[name='countries_form'] table.dataTable tr.row"));
             
             List<Int32> countriesIds = new List<Int32>();
             
@@ -57,13 +57,13 @@ namespace first_project
 
             foreach (var id in countriesIds)
             {
-                IWebElement row = _driver.FindElement(By.XPath("//form[@name='countries_form']/table[@class='dataTable']//tr[@class='row']/td[3][.='" + id + "']/.."));
+                IWebElement row = Driver.FindElement(By.XPath("//form[@name='countries_form']/table[@class='dataTable']//tr[@class='row']/td[3][.='" + id + "']/.."));
                 int zones = Int32.Parse(row.FindElements(By.TagName("td"))[5].Text);
                 
                 if (zones>0)
                 {
                     row.FindElement(By.TagName("a")).Click();
-                    List<IWebElement> geozonestableRows = _driver.FindElements(By.CssSelector("table#table-zones tr:not(.header)")).ToList();
+                    List<IWebElement> geozonestableRows = Driver.FindElements(By.CssSelector("table#table-zones tr:not(.header)")).ToList();
                     geozonestableRows.RemoveAt(geozonestableRows.Count-1);
 
                     string previousCountryName = "Aaaaa";
@@ -75,10 +75,12 @@ namespace first_project
 
                         previousCountryName = countryName;
                     }
-                    _driver.Navigate().Back();
+                    GoBack();
                 }
             }
         }
+
+        
 
         //2
         [Test]
@@ -86,9 +88,9 @@ namespace first_project
         {
             LogintoAdminPanel();
 
-            _driver.Url = "http://localhost:81/litecart/admin/?app=geo_zones&doc=geo_zones";
+            Driver.Url = "http://localhost:81/litecart/admin/?app=geo_zones&doc=geo_zones";
 
-            ReadOnlyCollection<IWebElement> tableRows = _driver.FindElements(By.CssSelector("form[name='geo_zones_form'] table.dataTable tr.row"));
+            ReadOnlyCollection<IWebElement> tableRows = Driver.FindElements(By.CssSelector("form[name='geo_zones_form'] table.dataTable tr.row"));
 
             List<Int32> countriesIds = new List<Int32>();
 
@@ -103,11 +105,11 @@ namespace first_project
 
             foreach (var id in countriesIds)
             {
-                IWebElement row = _driver.FindElement(By.XPath("//form[@name='geo_zones_form']/table[@class='dataTable']//tr[@class='row']/td[2][.='" + id + "']/.."));
+                IWebElement row = Driver.FindElement(By.XPath("//form[@name='geo_zones_form']/table[@class='dataTable']//tr[@class='row']/td[2][.='" + id + "']/.."));
                
                 row.FindElement(By.TagName("a")).Click();
                     
-                List<IWebElement> geozonestableRows = _driver.FindElements(By.CssSelector("table#table-zones tr:not(.header)")).ToList();
+                List<IWebElement> geozonestableRows = Driver.FindElements(By.CssSelector("table#table-zones tr:not(.header)")).ToList();
                    
                 geozonestableRows.RemoveAt(geozonestableRows.Count - 1);
 
@@ -122,7 +124,7 @@ namespace first_project
 
                         previousCountryName = countryName;
                     }
-                    _driver.Navigate().Back();
+                   GoBack();
                 }
         }
     }

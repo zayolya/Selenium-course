@@ -66,12 +66,12 @@ namespace first_project
 
         private void SelectMenuItem(string itemName)
         {
-            _driver.FindElement(By.XPath("//div[@id='box-apps-menu-wrapper']//span[contains(.,'" + itemName + "')]")).Click();
+            Driver.FindElement(By.XPath("//div[@id='box-apps-menu-wrapper']//span[contains(.,'" + itemName + "')]")).Click();
         }
         
         private void CheckPageTitle(string title)
         {
-            _wait.Until(ExpectedConditions.TitleIs(title));
+            Wait.Until(ExpectedConditions.TitleIs(title));
         }
     }
 }
