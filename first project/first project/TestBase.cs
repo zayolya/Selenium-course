@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -37,6 +39,7 @@ namespace first_project
             Driver.FindElement(By.Name("login")).Click();
             Wait.Until(ExpectedConditions.ElementExists(By.Id("box-apps-menu")));
         }
+
         protected void OpenHomePage()
         {
             Driver.Url = "http://localhost:81/litecart/";
@@ -62,21 +65,21 @@ namespace first_project
             SelectElement selectElement = new SelectElement(select);
             selectElement.SelectByIndex(selectIndex);
         }
-        
+
         protected void Logout()
         {
             Driver.FindElement(By.XPath("//a[contains(.,'Logout')]")).Click();
         }
-        
+
         protected void Unhide(IWebElement element)
         {
             String script = "arguments[0].style.opacity=1;"
-              + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
-              + "return true;";
+                            + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
+                            + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
+                            + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
+                            + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
+                            + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
+                            + "return true;";
             Driver.ExecuteJavaScript(script, element);
         }
 
@@ -87,7 +90,7 @@ namespace first_project
             (Driver as IJavaScriptExecutor).ExecuteScript(
                 String.Format("$('{0}').datepicker('setDate', '{1}')", cssSelector, date));
         }
-        
+
         protected void FindAndClickLinkByText(string linkText)
         {
             Driver.FindElement(By.XPath("//a[contains(.,'" + linkText + "')]")).Click();
@@ -104,12 +107,12 @@ namespace first_project
         {
             return Wait.Until(d => d.FindElement(locator));
         }
-        
+
         protected IWebElement WaitForElementExists(By locator)
         {
             return Wait.Until(ExpectedConditions.ElementExists(locator));
         }
-        
+
         protected bool IsElementPresent(By locator)
         {
             try
@@ -162,5 +165,17 @@ namespace first_project
             Driver.Navigate().Back();
         }
 
+        protected Func<IWebDriver, string> AnyWindowOtherThanExisting(List<string> oldWindows)
+        {
+            return (Func<IWebDriver, string>)(driver =>
+            {
+                    List<string> allhandles = driver.WindowHandles.ToList();
+                    foreach (var window in oldWindows)
+                    {
+                        allhandles.Remove(window);
+                    }
+                    return allhandles.Count > 0 ? allhandles[0] : null;
+            });
+        }
     }
 }

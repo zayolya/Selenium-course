@@ -73,6 +73,7 @@
     <Compile Include="RegistrationTest.cs" />
     <Compile Include="AddItemTests.cs" />
     <Compile Include="AddItemsToCart.cs" />
+    <Compile Include="OpenWindowTests.cs" />
     <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>
