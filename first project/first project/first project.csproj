@@ -74,6 +74,10 @@
     <Compile Include="AddItemTests.cs" />
     <Compile Include="AddItemsToCart.cs" />
     <Compile Include="OpenWindowTests.cs" />
+    <Compile Include="RemoteTests.cs" />
+    <Compile Include="CloudTest.cs" />
+    <Compile Include="EventLoggingTests.cs" />
+    <Compile Include="BrowserLogReadingTests.cs" />
     <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>
