@@ -20,3 +20,9 @@ C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\firs
 C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\obj\Debug\first project.csprojResolveAssemblyReference.cache
 C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\obj\Debug\first project.dll
 C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\obj\Debug\first project.pdb
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\Flurl.dll
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\RemoteBrowserMobProxy.dll
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\RestSharp.dll
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\Flurl.pdb
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\Flurl.xml
+C:\Users\olgaz\Desktop\selenium course\GitHub\Selenium-course\first project\first project\bin\Debug\RestSharp.xml

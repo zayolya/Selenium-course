@@ -35,8 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Flurl, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.1.0.10\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RemoteBrowserMobProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RemoteBrowserMobProxy.0.0.1\lib\net45\RemoteBrowserMobProxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -63,25 +75,36 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AdminPanelBasicTest.cs" />
-    <Compile Include="MyFirstTest.cs" />
+    <Compile Include="Old tests\AdminPanelBasicTest.cs" />
+    <Compile Include="app\Application.cs" />
+    <Compile Include="model\Customer.cs" />
+    <Compile Include="Old tests\MyFirstTest.cs" />
+    <Compile Include="pages\AdminPanelLoginPage.cs" />
+    <Compile Include="pages\CheckOutPage.cs" />
+    <Compile Include="pages\CustomerListPage.cs" />
+    <Compile Include="pages\HomePage.cs" />
+    <Compile Include="pages\ItemPage.cs" />
+    <Compile Include="pages\Page.cs" />
+    <Compile Include="pages\RegistrationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoginToAdminPanelTest.cs" />
-    <Compile Include="TestBase.cs" />
-    <Compile Include="AllItemsHaveStickersTest.cs" />
-    <Compile Include="CheckCountriesAlphabetOrderTest.cs" />
-    <Compile Include="RegistrationTest.cs" />
-    <Compile Include="AddItemTests.cs" />
-    <Compile Include="AddItemsToCart.cs" />
-    <Compile Include="OpenWindowTests.cs" />
-    <Compile Include="RemoteTests.cs" />
-    <Compile Include="CloudTest.cs" />
-    <Compile Include="EventLoggingTests.cs" />
-    <Compile Include="BrowserLogReadingTests.cs" />
-    <Compile Include="WhenSelectItemRightPageIsOpenedTest.cs" />
+    <Compile Include="Old tests\LoginToAdminPanelTest.cs" />
+    <Compile Include="tests\TestBase.cs" />
+    <Compile Include="Old tests\AllItemsHaveStickersTest.cs" />
+    <Compile Include="Old tests\CheckCountriesAlphabetOrderTest.cs" />
+    <Compile Include="tests\RegistrationTest.cs" />
+    <Compile Include="Old tests\AddItemTests.cs" />
+    <Compile Include="tests\AddItemsToCart.cs" />
+    <Compile Include="Old tests\OpenWindowTests.cs" />
+    <Compile Include="Old tests\RemoteTests.cs" />
+    <Compile Include="Old tests\CloudTest.cs" />
+    <Compile Include="Old tests\EventLoggingTests.cs" />
+    <Compile Include="Old tests\BrowserLogReadingTests.cs" />
+    <Compile Include="Old tests\ProxyTests.cs" />
+    <Compile Include="tests\DataProviders.cs" />
+    <Compile Include="Old tests\WhenSelectItemRightPageIsOpenedTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Old tests\packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
